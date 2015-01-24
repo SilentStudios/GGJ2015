@@ -5,9 +5,7 @@ using UnityEngine.UI;
 public class DanceActionActor : ActionActor {
 
     const float TIME_BETWEEN_QTE = 2;
-    const float TIME_QTE = 1.0f;
-
-    
+    const float TIME_QTE = 1.0f;    
 
     KeyCode m_currentKeyCode;
     
