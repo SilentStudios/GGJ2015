@@ -16,7 +16,7 @@ public class ActionTextListener : MonoBehaviour {
 
     void OnEnable()
     {
-        EventServer.ChangeActionEvent += ChangeText;
+        //EventServer.ChangeActionEvent += ChangeText;
     }
 
     private void ChangeText(string text)

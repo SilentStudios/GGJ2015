@@ -16,7 +16,7 @@ public class AmbientTextListener : MonoBehaviour {
 
     void OnEnable()
     {
-        EventServer.ChangeAmbientEvent += ChangeText;
+        //EventServer.ChangeAmbientEvent += ChangeText;
     }
 
     private void ChangeText(string text)

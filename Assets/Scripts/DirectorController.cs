@@ -38,54 +38,53 @@ public class DirectorController : MonoBehaviour {
         m_elapsedTime += Time.deltaTime;
         EventServer.AddTime(m_elapsedTime / 5.0f);
         // Capture ambient decision.
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             RemoveAmbientComponent();
-            EventServer.ChangeAmbient(gameObject.AddComponent<RainBehaviour>().ToString());
-            
+            EventServer.ChangeAmbient(gameObject.AddComponent<RainBehaviour>());
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             RemoveAmbientComponent();
-            EventServer.ChangeAmbient(gameObject.AddComponent<BalloonBehaviour>().ToString());
+            EventServer.ChangeAmbient(gameObject.AddComponent<BalloonBehaviour>());
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            RemoveAmbientComponent();
+            EventServer.ChangeAmbient(gameObject.AddComponent<StormBehaviour>());
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             RemoveAmbientComponent();
-            EventServer.ChangeAmbient(gameObject.AddComponent<StormBehaviour>().ToString());
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            RemoveAmbientComponent();
-            EventServer.ChangeAmbient(gameObject.AddComponent<DarknessBehaviour>().ToString());
+            EventServer.ChangeAmbient(gameObject.AddComponent<DarknessBehaviour>());
         }
 
         EventServer.SendText(gameObject.GetComponent<Ambient>().GetType().ToString());
 
         // Capture action decision.
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             RemoveActionActor();
             m_actor.AddComponent<DanceActionActor>().enabled = false;
-            EventServer.ChangeAction("Dance");
+            EventServer.ChangeAction(m_actor.GetComponent<ActionActor>());
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             RemoveActionActor();
             m_actor.AddComponent<FightActionActor>().enabled = false;
-            EventServer.ChangeAction("Fight");
+            EventServer.ChangeAction(m_actor.GetComponent<ActionActor>());
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            RemoveActionActor();
+            m_actor.AddComponent<StealthActionActor>().enabled = false;
+            EventServer.ChangeAction(m_actor.GetComponent<ActionActor>());
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             RemoveActionActor();
-            m_actor.AddComponent<StealthActionActor>().enabled = false;
-            EventServer.ChangeAction("Stealth");
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            RemoveActionActor();
             m_actor.AddComponent<CryActionActor>().enabled = false;
-            EventServer.ChangeAction("Cry");
+            EventServer.ChangeAction(m_actor.GetComponent<ActionActor>());
         }
 
         EventServer.SendText(m_actor.GetComponent<ActionActor>().GetType().ToString());

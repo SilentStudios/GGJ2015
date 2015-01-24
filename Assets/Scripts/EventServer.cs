@@ -9,8 +9,12 @@ public class EventServer
 
     public delegate void StringEvent(string text);
     public static event StringEvent SendTextEvent;
-    public static event StringEvent ChangeActionEvent;
-    public static event StringEvent ChangeAmbientEvent;
+
+    public delegate void ActionEvent(ActionActor action);
+    public static event ActionEvent ChangeActionEvent;
+
+    public delegate void AmbientEvent(Ambient ambient);
+    public static event AmbientEvent ChangeAmbientEvent;
 
     public delegate void FloatEvent(float f);
     public static event FloatEvent AddFightSuccessEvent;
@@ -43,13 +47,13 @@ public class EventServer
             FinishDirectorTimeEvent();
     }
 
-    public static void ChangeAction(string text)
+    public static void ChangeAction(ActionActor text)
     {
         if (ChangeActionEvent != null)
             ChangeActionEvent(text);
     }
 
-    public static void ChangeAmbient(string text)
+    public static void ChangeAmbient(Ambient text)
     {
         if (ChangeAmbientEvent != null)
             ChangeAmbientEvent(text);
