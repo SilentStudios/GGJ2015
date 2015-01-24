@@ -14,8 +14,10 @@ public class ParteArribaMedidorPelea : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
+		Debug.Log ("Entrando parte arriba");
 	}
 	
 	void OnTriggerExit2D(Collider2D collider){
+		Debug.Log ("Saliendo parte arriba");
 	}
 }
