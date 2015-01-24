@@ -14,8 +14,10 @@ public class ParteAbajoMedidorPelea : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
+		Debug.Log ("Entrando parte abajo");
 	}
 
 	void OnTriggerExit2D(Collider2D collider){
+		Debug.Log ("Saliendo parte abajo");
 	}
 }
