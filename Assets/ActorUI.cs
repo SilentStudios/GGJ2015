@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StealthActionActor : ActionActor {
+public class ActorUI : MonoBehaviour {
+
+
 
 	// Use this for initialization
 	void Start () {

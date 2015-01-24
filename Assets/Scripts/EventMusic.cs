@@ -34,8 +34,7 @@ public class EventMusic : MonoBehaviour {
             return;
 
         m_musicType = type;
-        m_lastKeyFrame = audio.time;
-        GetComponent<Animator>().enabled = false;
+        m_lastKeyFrame = audio.time;       
         StartCoroutine("WaitUntilDirectorChoise");
 
 
@@ -44,9 +43,13 @@ public class EventMusic : MonoBehaviour {
 
     IEnumerator WaitUntilDirectorChoise()
     {
+        GetComponent<Animator>().enabled = false;
+        //GetComponent<ActionActor>().enabled = false;
         GetComponent<DirectorController>().enabled = true;
         yield return new WaitForSeconds(5);
         GetComponent<Animator>().enabled = true;
+        GetComponent<DirectorController>().enabled = false;
+        //GetComponent<ActionActor>().enabled = true;
     }
     
 }
