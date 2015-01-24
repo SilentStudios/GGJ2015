@@ -5,6 +5,8 @@ public class DirectorController : MonoBehaviour {
 
     public GameObject m_actor;
     public Canvas canvas;
+
+    float m_elapsedTime;
 	// Use this for initialization
 	void OnEnable () {
 	    // Random Ambient and Action
@@ -12,10 +14,13 @@ public class DirectorController : MonoBehaviour {
         RemoveAmbientComponent();
         gameObject.AddComponent<RainBehaviour>();
 
+        m_elapsedTime = 0;
+
         RemoveActionActor();
         m_actor.AddComponent<DanceActionActor>().enabled =false;
 
         EventServer.SendText(m_actor.GetComponent<ActionActor>().GetType().ToString());
+        EventServer.AddTime(0.0f);
 
         if (canvas) canvas.gameObject.SetActive(true);
 
@@ -30,27 +35,29 @@ public class DirectorController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        m_elapsedTime += Time.deltaTime;
+        EventServer.AddTime(m_elapsedTime / 5.0f);
         // Capture ambient decision.
         if (Input.GetKeyDown(KeyCode.W))
         {
             RemoveAmbientComponent();
-            gameObject.AddComponent<RainBehaviour>();
+            EventServer.ChangeAmbient(gameObject.AddComponent<RainBehaviour>().ToString());
             
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             RemoveAmbientComponent();
-            gameObject.AddComponent<BalloonBehaviour>();
+            EventServer.ChangeAmbient(gameObject.AddComponent<BalloonBehaviour>().ToString());
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             RemoveAmbientComponent();
-            gameObject.AddComponent<StormBehaviour>();
+            EventServer.ChangeAmbient(gameObject.AddComponent<StormBehaviour>().ToString());
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             RemoveAmbientComponent();
-            gameObject.AddComponent<DarknessBehaviour>();
+            EventServer.ChangeAmbient(gameObject.AddComponent<DarknessBehaviour>().ToString());
         }
 
         EventServer.SendText(gameObject.GetComponent<Ambient>().GetType().ToString());
@@ -60,21 +67,25 @@ public class DirectorController : MonoBehaviour {
         {
             RemoveActionActor();
             m_actor.AddComponent<DanceActionActor>().enabled = false;
+            EventServer.ChangeAction("Dance");
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             RemoveActionActor();
-            m_actor.AddComponent<FightActionActor>().enabled = false; 
+            m_actor.AddComponent<FightActionActor>().enabled = false;
+            EventServer.ChangeAction("Fight");
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             RemoveActionActor();
             m_actor.AddComponent<StealthActionActor>().enabled = false;
+            EventServer.ChangeAction("Stealth");
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             RemoveActionActor();
             m_actor.AddComponent<CryActionActor>().enabled = false;
+            EventServer.ChangeAction("Cry");
         }
 
         EventServer.SendText(m_actor.GetComponent<ActionActor>().GetType().ToString());
