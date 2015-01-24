@@ -15,7 +15,10 @@ public class DirectorController : MonoBehaviour {
         RemoveActionActor();
         m_actor.AddComponent<DanceActionActor>().enabled =false;
 
+        EventServer.SendText(m_actor.GetComponent<ActionActor>().GetType().ToString());
+
         if (canvas) canvas.gameObject.SetActive(true);
+
 	}
 
     void OnDisable()
@@ -50,6 +53,8 @@ public class DirectorController : MonoBehaviour {
             gameObject.AddComponent<DarknessBehaviour>();
         }
 
+        EventServer.SendText(gameObject.GetComponent<Ambient>().GetType().ToString());
+
         // Capture action decision.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -71,6 +76,8 @@ public class DirectorController : MonoBehaviour {
             RemoveActionActor();
             m_actor.AddComponent<CryActionActor>().enabled = false;
         }
+
+        EventServer.SendText(m_actor.GetComponent<ActionActor>().GetType().ToString());
 	}
 
     void RemoveAmbientComponent()

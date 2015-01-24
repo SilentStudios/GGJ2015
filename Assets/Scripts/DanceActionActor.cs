@@ -15,12 +15,9 @@ public class DanceActionActor : ActionActor {
 	// Use this for initialization
 	void Start () {
 
-        GameObject prefab = Resources.Load("Prefabs/UI/ActorUI") as GameObject;
-        if (prefab) m_ui = Instantiate(prefab) as GameObject;
-
         m_elapsedTime = 0;
         m_currentKeyCode = InputManager.GetRandomKeyCodeArrow();
-        m_ui.GetComponent<ActorUI>().GetComponentInChildren<Text>().text = m_currentKeyCode.ToString();
+        EventServer.SendText(m_currentKeyCode.ToString());
         state = QTEState.SHOWED;
 	}
 	
@@ -51,12 +48,11 @@ public class DanceActionActor : ActionActor {
 
     private void HideState()
     {
-        m_ui.GetComponent<ActorUI>().GetComponentInChildren<Text>().text = "";
         if (m_elapsedTime >= TIME_BETWEEN_QTE)
         {
             m_elapsedTime = 0;
             m_currentKeyCode = InputManager.GetRandomKeyCodeArrow();
-            m_ui.GetComponent<ActorUI>().GetComponentInChildren<Text>().text = m_currentKeyCode.ToString();
+            EventServer.SendText(m_currentKeyCode.ToString());
             state = QTEState.SHOWED;
         }
     }
@@ -66,12 +62,12 @@ public class DanceActionActor : ActionActor {
         if (Input.anyKeyDown)
         {
             if (Input.GetKeyDown(m_currentKeyCode))
-            { 
-                Debug.Log("Correcto");
+            {
+                EventServer.SendText("Correcto");
             }
             else
             {
-                Debug.Log("Incorrecto");
+                EventServer.SendText("Incorrecto");
             }
             state = QTEState.HIDE;
         }
@@ -82,8 +78,4 @@ public class DanceActionActor : ActionActor {
         }
     }
 
-    void OnDestroy()
-    {
-        Destroy(m_ui);
-    }
 }
