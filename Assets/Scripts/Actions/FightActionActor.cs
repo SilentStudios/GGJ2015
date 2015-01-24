@@ -9,19 +9,21 @@ public class FightActionActor : ActionActor {
     bool one;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
         one = true;
         m_elapsedTime = 0;
         m_currentKey1 = InputManager.GetRandomKeyCodeArrow();
         m_currentKey2 = InputManager.GetRandomKeyCodeArrow();
-        while (m_currentKey2 == m_currentKey1)
-            m_currentKey2 = InputManager.GetRandomKeyCodeArrow();
+
+        while (m_currentKey2 == m_currentKey1) {
+			m_currentKey2 = InputManager.GetRandomKeyCodeArrow ();
+		}
 
         EventServer.SendText(m_currentKey1.ToString() + " + " + m_currentKey2.ToString());
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
         if (one)
         {
             if (Input.GetKeyDown(m_currentKey1))
