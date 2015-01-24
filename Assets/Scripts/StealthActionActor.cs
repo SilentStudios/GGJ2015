@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DanceActionActor : ActionActor {
+public class StealthActionActor : ActionActor {
 
 	// Use this for initialization
 	void Start () {

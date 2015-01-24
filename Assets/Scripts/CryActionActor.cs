@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CryActionActor : MonoBehaviour, BaseActionActor {
+public class CryActionActor : ActionActor {
 
-	public void executeAction() {
-		Debug.Log ("Ejecutando accion de llorar");
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
 	}
 }

@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FightActionPlayer : MonoBehaviour, BaseActionActor {
+public class FightActionPlayer : ActionActor {
 
-	public void executeAction() {
-		Debug.Log ("Ejecutando accion de pelea");
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
 	}
 }
