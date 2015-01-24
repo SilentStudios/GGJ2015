@@ -18,6 +18,6 @@ public class TimeLeftChangeListener : MonoBehaviour {
     {
         Slider slider = GetComponent<Slider>();
         if (slider)
-            slider.value += f;
+            slider.value = f;
     }
 }

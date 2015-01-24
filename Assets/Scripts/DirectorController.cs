@@ -5,6 +5,8 @@ public class DirectorController : MonoBehaviour {
 
     public GameObject m_actor;
     public Canvas canvas;
+
+    float m_elapsedTime;
 	// Use this for initialization
 	void OnEnable () {
 	    // Random Ambient and Action
@@ -12,10 +14,13 @@ public class DirectorController : MonoBehaviour {
         RemoveAmbientComponent();
         gameObject.AddComponent<RainBehaviour>();
 
+        m_elapsedTime = 0;
+
         RemoveActionActor();
         m_actor.AddComponent<DanceActionActor>().enabled =false;
 
         EventServer.SendText(m_actor.GetComponent<ActionActor>().GetType().ToString());
+        EventServer.AddTime(0.0f);
 
         if (canvas) canvas.gameObject.SetActive(true);
 
@@ -30,7 +35,8 @@ public class DirectorController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        EventServer.AddTime(Time.deltaTime / 5.0f);
+        m_elapsedTime += Time.deltaTime;
+        EventServer.AddTime(m_elapsedTime / 5.0f);
         // Capture ambient decision.
         if (Input.GetKeyDown(KeyCode.W))
         {
