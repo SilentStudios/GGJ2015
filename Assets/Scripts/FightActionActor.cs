@@ -13,7 +13,9 @@ public class FightActionActor : ActionActor {
         one = true;
         m_elapsedTime = 0;
         m_currentKey1 = InputManager.GetRandomKeyCodeArrow();
-        m_currentKey2 = ++m_currentKey1;
+        m_currentKey2 = InputManager.GetRandomKeyCodeArrow();
+        while (m_currentKey2 == m_currentKey1)
+            m_currentKey2 = InputManager.GetRandomKeyCodeArrow();
 
         EventServer.SendText(m_currentKey1.ToString() + " + " + m_currentKey2.ToString());
 	}
@@ -25,6 +27,7 @@ public class FightActionActor : ActionActor {
             if (Input.GetKeyDown(m_currentKey1))
             {
                 one = !one;
+                EventServer.AddFightSuccess(0.2f);
             }
         }
         else
@@ -32,6 +35,7 @@ public class FightActionActor : ActionActor {
             if (Input.GetKeyDown(m_currentKey2))
             {
                 one = !one;
+                EventServer.AddFightSuccess(0.2f);
             }
         }
 	    
