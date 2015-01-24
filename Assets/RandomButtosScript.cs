@@ -18,21 +18,4 @@ public class RandomButtosScript : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        if (CheckIfAllButtonsArePushed())
-        {
-            slider.value += ratioToAdd * Time.deltaTime;
-        }
-	}
-
-    private bool CheckIfAllButtonsArePushed()
-    {
-        bool toReturn = true;
-        foreach (Image i in m_images)
-        {
-            if (!i.GetComponent<ButtonInput>().isPushed) return false;
-        }
-        return toReturn;
-    }
 }

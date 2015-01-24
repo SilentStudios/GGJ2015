@@ -301,6 +301,7 @@ GameObject:
   - 223: {fileID: 22311068}
   - 114: {fileID: 11411112}
   - 114: {fileID: 11411110}
+  - 114: {fileID: 11414244}
   m_Layer: 5
   m_Name: CanvasStealth
   m_TagString: Untagged
@@ -777,6 +778,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11414244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00dd8143e9db3f54fb54a41c12b8c572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &22211068
 CanvasRenderer:
   m_ObjectHideFlags: 1
