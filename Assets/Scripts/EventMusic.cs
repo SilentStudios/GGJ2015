@@ -47,7 +47,7 @@ public class EventMusic : MonoBehaviour {
         //GetComponent<ActionActor>().enabled = false;
         GetComponent<DirectorController>().enabled = true;
 		EventServer.DirectorTime ();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
         //GetComponent<Animator>().enabled = true;
         GetComponent<DirectorController>().enabled = false;
         //GetComponent<ActionActor>().enabled = true;

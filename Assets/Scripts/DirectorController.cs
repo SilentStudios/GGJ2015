@@ -38,7 +38,7 @@ public class DirectorController : MonoBehaviour {
 	void Update () 
     {
         m_elapsedTime += Time.deltaTime;
-        EventServer.AddTime(m_elapsedTime / 5.0f);
+        EventServer.AddTime(m_elapsedTime / 15.0f);
         // Capture ambient decision.
         if (Input.GetKeyDown(KeyCode.D))
         {

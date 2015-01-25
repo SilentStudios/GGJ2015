@@ -5,7 +5,7 @@ public class ActionCanvas : MonoBehaviour {
 
     void OnEnable()
     {
-        EventServer.StartDirectorTimeEvent += Finish;
+        //EventServer.StartDirectorTimeEvent += Finish;
     }
 
     private void Finish()
