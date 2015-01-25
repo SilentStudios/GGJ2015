@@ -59,32 +59,34 @@ public class DirectorController : MonoBehaviour {
             EventServer.ChangeAmbient(gameObject.AddComponent<DarknessBehaviour>());
         }
 
-        EventServer.SendText(gameObject.GetComponent<Ambient>().GetType().ToString());
-
         // Capture action decision.
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             RemoveActionActor();
-            m_actor.AddComponent<DanceActionActor>().enabled = false;
-            EventServer.ChangeAction(m_actor.GetComponent<ActionActor>());
+            ActionActor action = m_actor.AddComponent<DanceActionActor>();
+            action.enabled = false;
+            EventServer.ChangeAction(action);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             RemoveActionActor();
-            m_actor.AddComponent<FightActionActor>().enabled = false;
-            EventServer.ChangeAction(m_actor.GetComponent<ActionActor>());
+            ActionActor action = m_actor.AddComponent<FightActionActor>();
+            action.enabled = false;
+            EventServer.ChangeAction(action);
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             RemoveActionActor();
-            m_actor.AddComponent<StealthActionActor>().enabled = false;
-            EventServer.ChangeAction(m_actor.GetComponent<ActionActor>());
+            ActionActor action = m_actor.AddComponent<StealthActionActor>();
+            action.enabled = false;
+            EventServer.ChangeAction(action);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             RemoveActionActor();
-            m_actor.AddComponent<CryActionActor>().enabled = false;
-            EventServer.ChangeAction(m_actor.GetComponent<ActionActor>());
+            ActionActor action = m_actor.AddComponent<CryActionActor>();
+            action.enabled = false;
+            EventServer.ChangeAction(action);
         }
 
         EventServer.SendText(m_actor.GetComponent<ActionActor>().GetType().ToString());

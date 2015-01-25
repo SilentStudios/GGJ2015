@@ -19,6 +19,11 @@ public class ActionButtonListener : MonoBehaviour {
         GetComponent<Image>().color = Color.grey;
     }
 
+    void OnDisable()
+    {
+        EventServer.ChangeActionEvent -= ChangeEvent;
+    }
+
     private void ChangeEvent(ActionActor ambient)
     {
         bool same = false;

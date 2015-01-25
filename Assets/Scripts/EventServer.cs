@@ -22,21 +22,21 @@ public class EventServer
 
     public static void SendText(string text)
     {
-        Debug.Log("SendTextEvent: " + text);
+        //Debug.Log("SendTextEvent: " + text);
         if (SendTextEvent != null)
             SendTextEvent(text);
     }
 
     public static void AddFightSuccess(float f)
     {
-        Debug.Log("AddFightSuccess: " + f.ToString());
+        //Debug.Log("AddFightSuccess: " + f.ToString());
         if (AddFightSuccessEvent != null)
             AddFightSuccessEvent(f);
     }
 
     public static void AddTime(float f)
     {
-        Debug.Log("AddTime: " + f.ToString());
+        //Debug.Log("AddTime: " + f.ToString());
         if (AddTimeEvent != null)
             AddTimeEvent(f);
     }
