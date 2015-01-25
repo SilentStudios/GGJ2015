@@ -19,7 +19,7 @@ public class SceneManager : MonoBehaviour {
 
     public void NextImage()
     {
-        exit.gameObject.SetActive(false);
+        //exit.gameObject.SetActive(false);
         
         if (index < images.Length)
         {

@@ -26,6 +26,10 @@ public class AudioManager : MonoBehaviour {
                 audioSource.clip = audios[index];
                 audioSource.Play();
             }
+            else
+            {
+                Application.LoadLevel("mainMenu");
+            }
             
         }
 
