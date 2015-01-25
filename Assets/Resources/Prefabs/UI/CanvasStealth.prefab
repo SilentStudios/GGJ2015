@@ -302,6 +302,7 @@ GameObject:
   - 114: {fileID: 11411112}
   - 114: {fileID: 11411110}
   - 114: {fileID: 11414244}
+  - 114: {fileID: 11401932}
   m_Layer: 5
   m_Name: CanvasStealth
   m_TagString: Untagged
@@ -309,6 +310,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11401932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f82e23834605614cb6d12d454483168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 11411068}
+  buttons: {fileID: 11411098}
 --- !u!114 &11411068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e335533fdac2db7469d3658402600e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_totalTime: 20
+  m_totalTime: 4
 --- !u!114 &11411070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -606,7 +620,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef40ff4f14581e479c0d691c5c325ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_images: []
+  m_images:
+  - {fileID: 11411100}
+  - {fileID: 11411088}
+  - {fileID: 11411086}
+  - {fileID: 11411076}
+  - {fileID: 11411074}
   slider: {fileID: 0}
   ratioToAdd: 1
 --- !u!114 &11411100

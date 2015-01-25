@@ -14,6 +14,7 @@ public class ParteArribaMedidorPelea : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey (KeyCode.UpArrow) && m_isInside) {
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isAtaqueArribaPelea", true);
+			StartCoroutine("desactiveAnimatorWithDelay");
 			m_isInside = false;
 		}
 	}
@@ -26,7 +27,12 @@ public class ParteArribaMedidorPelea : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D collider){
         goToActivate.SetActive(false);
 		m_isInside = false;
-		GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isAtaqueArribaPelea", false);
+	}
+
+	IEnumerator desactiveAnimatorWithDelay() 
+	{
+		yield return new WaitForSeconds(0.2f);
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAtaqueArribaPelea", false);
 	}
 
 	void OnDisable() {

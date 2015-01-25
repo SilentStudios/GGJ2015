@@ -11,4 +11,8 @@ public abstract class ActionActor : MonoBehaviour {
     {
         Destroy(m_ui);
     }
+
+	void OnDisable()
+	{
+	}
 }

@@ -43,11 +43,11 @@ public class EventMusic : MonoBehaviour {
 
     IEnumerator WaitUntilDirectorChoise()
     {
-        GetComponent<Animator>().enabled = false;
+        //GetComponent<Animator>().enabled = false;
         //GetComponent<ActionActor>().enabled = false;
         GetComponent<DirectorController>().enabled = true;
         yield return new WaitForSeconds(5);
-        GetComponent<Animator>().enabled = true;
+        //GetComponent<Animator>().enabled = true;
         GetComponent<DirectorController>().enabled = false;
         //GetComponent<ActionActor>().enabled = true;
     }

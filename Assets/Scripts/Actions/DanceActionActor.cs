@@ -15,7 +15,7 @@ public class DanceActionActor : ActionActor {
 	void Start () {
         m_ui = Resources.Load("Prefabs/UI/CanvasDance") as GameObject;
         m_ui = Instantiate(m_ui) as GameObject;
-
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isIdleBaile", true);
         
 	}
 	
@@ -24,6 +24,11 @@ public class DanceActionActor : ActionActor {
         
         
 
+	}
+
+	void OnDisable()
+	{
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isIdleBaile", false);
 	}
 
     

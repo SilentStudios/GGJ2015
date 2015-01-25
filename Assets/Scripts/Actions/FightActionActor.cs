@@ -12,6 +12,7 @@ public class FightActionActor : ActionActor {
 	void Start() {
         m_ui = Resources.Load("Prefabs/UI/CanvasFight") as GameObject;
         m_ui = Instantiate(m_ui) as GameObject;
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isIdlePelea", true);
 
         /*
         one = true;
@@ -46,6 +47,10 @@ public class FightActionActor : ActionActor {
             }
         }
 	    */
+	}
+
+	void OnDisable() {
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isIdlePelea", false);
 	}
 
     void OnDestroy()

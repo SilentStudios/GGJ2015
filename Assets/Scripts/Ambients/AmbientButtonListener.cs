@@ -13,9 +13,18 @@ public class AmbientButtonListener : MonoBehaviour {
         PARTY
     }
 
-    void OnEnable()
+    void Start()
     {
         EventServer.ChangeAmbientEvent += ChangeEvent;
+    }
+    void OnDisable()
+    {
+        EventServer.ChangeAmbientEvent -= ChangeEvent;
+    }
+
+    void OnEnable()
+    {
+        
         GetComponent<Image>().color = Color.grey;
     }
 

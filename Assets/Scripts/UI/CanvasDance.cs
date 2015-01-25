@@ -89,11 +89,11 @@ public class CanvasDance : MonoBehaviour {
             {
 				m_keystring.PushCorrect();
 				GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAccionBaile", true);
+				StartCoroutine("desactiveAnimatorWithDelay");
             }
             else
             {
 				m_keystring.PushIncorrect();
-				GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAccionBaile", false);
             }
             state = QTEState.HIDE;
         }
@@ -105,6 +105,12 @@ public class CanvasDance : MonoBehaviour {
     }
 
 	void OnDisable(){
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAccionBaile", false);
+	}
+
+	IEnumerator desactiveAnimatorWithDelay() 
+	{
+		yield return new WaitForSeconds(0.2f);
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAccionBaile", false);
 	}
 }
