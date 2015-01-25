@@ -17,6 +17,7 @@ public class StealthActionActor : ActionActor {
 
     void OnDestroy()
     {
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isIdleSigilo", false);
         Destroy(m_ui);
     }
 }
