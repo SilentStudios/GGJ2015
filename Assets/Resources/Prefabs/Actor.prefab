@@ -553,7 +553,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 452014}
   - 114: {fileID: 11428376}
-  - 114: {fileID: 11472352}
+  - 95: {fileID: 9569496}
   m_Layer: 0
   m_Name: Actor
   m_TagString: Untagged
@@ -1421,18 +1421,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 428352}
   m_RootOrder: 2
---- !u!114 &11428376
-MonoBehaviour:
+--- !u!95 &9569496
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152014}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ec830edcc8fe54da90f5a4fd0478a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11472352
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 023d7ab1e3203ed41bb4df2ce1d0c96d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11428376
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
