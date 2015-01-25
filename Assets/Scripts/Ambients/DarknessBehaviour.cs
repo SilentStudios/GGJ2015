@@ -5,7 +5,7 @@ public class DarknessBehaviour : Ambient {
 
     protected override void SetPathPrefab()
     {
-        m_prefabToLoad = "";
+        m_prefabToLoad = "Prefabs/Background/BackgroundDarkness";
     }
     
 }

@@ -26,7 +26,7 @@ public class CanvasDance : MonoBehaviour {
         m_elapsedTime = 0;
         m_currentKeyCode = InputManager.GetRandomKeyCodeArrow();
         m_keystring.gameObject.SetActive(true);
-        m_keystring.text = m_currentKeyCode.ToString();
+        m_keystring.text = GetStringFromArrow(m_currentKeyCode);
         state = QTEState.SHOWED;
 	}
 	
@@ -55,8 +55,29 @@ public class CanvasDance : MonoBehaviour {
             m_elapsedTime = 0;
             m_currentKeyCode = InputManager.GetRandomKeyCodeArrow();
             m_keystring.color = Color.black;
-            m_keystring.text = m_currentKeyCode.ToString();
+            m_keystring.text = GetStringFromArrow(m_currentKeyCode);
             state = QTEState.SHOWED;
+        }
+    }
+
+    string GetStringFromArrow(KeyCode keyCode)
+    {
+        switch (keyCode)
+        {
+            case KeyCode.DownArrow:
+                return "v";
+
+            case KeyCode.UpArrow:
+                return "^";
+
+            case KeyCode.LeftArrow:
+                return "<";
+
+            case KeyCode.RightArrow:
+                return ">";
+
+            default:
+                return keyCode.ToString();
         }
     }
 

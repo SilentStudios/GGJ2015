@@ -121,7 +121,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -129,7 +129,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '>'
 --- !u!114 &11450738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,10 +251,10 @@ RectTransform:
   - {fileID: 22450738}
   m_Father: {fileID: 22450736}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 144, y: -27}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: .720767915, y: .416666627}
+  m_AnchorMax: {x: .883767903, y: .703000009}
+  m_AnchoredPosition: {x: 1, y: -1.90734863e-06}
+  m_SizeDelta: {x: 2, y: -7.62939999e-06}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

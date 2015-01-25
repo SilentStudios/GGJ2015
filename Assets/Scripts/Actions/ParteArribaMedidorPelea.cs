@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class ParteArribaMedidorPelea : MonoBehaviour {
+    public GameObject goToActivate;
 
 	// Use this for initialization
 	void Start () {
@@ -15,9 +16,11 @@ public class ParteArribaMedidorPelea : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider){
 		Debug.Log ("Entrando parte arriba");
+        goToActivate.SetActive(true);
 	}
 	
 	void OnTriggerExit2D(Collider2D collider){
 		Debug.Log ("Saliendo parte arriba");
+        goToActivate.SetActive(false);
 	}
 }
