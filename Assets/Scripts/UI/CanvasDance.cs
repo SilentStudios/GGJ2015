@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CanvasDance : MonoBehaviour {
 
-    public Text m_keystring;
+    public ArrowButton m_keystring;
 
     const float TIME_BETWEEN_QTE = 2;
     const float TIME_QTE = 1.0f;
@@ -25,8 +25,7 @@ public class CanvasDance : MonoBehaviour {
 	void Start () {
         m_elapsedTime = 0;
         m_currentKeyCode = InputManager.GetRandomKeyCodeArrow();
-        m_keystring.gameObject.SetActive(true);
-        m_keystring.text = GetStringFromArrow(m_currentKeyCode);
+		m_keystring.changeSprite (m_currentKeyCode);
         state = QTEState.SHOWED;
 	}
 	
@@ -54,8 +53,9 @@ public class CanvasDance : MonoBehaviour {
         {
             m_elapsedTime = 0;
             m_currentKeyCode = InputManager.GetRandomKeyCodeArrow();
-            m_keystring.color = Color.black;
-            m_keystring.text = GetStringFromArrow(m_currentKeyCode);
+			m_keystring.changeSprite(m_currentKeyCode);
+			m_keystring.GetComponent<Image>().color = Color.white;
+            
             state = QTEState.SHOWED;
         }
     }
@@ -87,11 +87,13 @@ public class CanvasDance : MonoBehaviour {
         {
             if (Input.GetKeyDown(m_currentKeyCode))
             {
-                m_keystring.color = Color.green;
+				m_keystring.PushCorrect();
+				GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAccionBaile", true);
             }
             else
             {
-                m_keystring.color = Color.red;
+				m_keystring.PushIncorrect();
+				GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAccionBaile", false);
             }
             state = QTEState.HIDE;
         }
@@ -101,4 +103,8 @@ public class CanvasDance : MonoBehaviour {
             state = QTEState.HIDE;
         }
     }
+
+	void OnDisable(){
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAccionBaile", false);
+	}
 }

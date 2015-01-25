@@ -26,7 +26,12 @@ public class CryBarController : MonoBehaviour {
 		}
 
 		if (Input.GetKey(key)) {
-			sliderPush.value += 0.005f; 
+			sliderPush.value += 0.005f;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isAccionLlanto", true);
+		}
+
+		if (Input.GetKeyUp (key)) {
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isAccionLlanto", false);
 		}
 	}
 
@@ -35,5 +40,10 @@ public class CryBarController : MonoBehaviour {
 		sliderPush.value = 0.0f;
 		key = InputManager.GetRandomKeyCode ();
 		sliderTime.GetComponentInChildren<Text> ().text = key.ToString();
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isAccionLlanto", false);
+	}
+
+	void OnDisable() {
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isAccionLlanto", false);
 	}
 }
