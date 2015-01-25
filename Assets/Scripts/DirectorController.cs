@@ -12,12 +12,14 @@ public class DirectorController : MonoBehaviour {
 	    // Random Ambient and Action
         //m_actor.GetComponent<ActionActor>().enabled = false;
         RemoveAmbientComponent();
-        gameObject.AddComponent<RainBehaviour>();
-
+        
+		EventServer.ChangeAmbient(gameObject.AddComponent<RainBehaviour>());
         m_elapsedTime = 0;
 
         RemoveActionActor();
-        m_actor.AddComponent<DanceActionActor>().enabled =false;
+		ActionActor action = m_actor.AddComponent<DanceActionActor>();
+		action.enabled = false;
+		EventServer.ChangeAction (action);
 
         EventServer.SendText(m_actor.GetComponent<ActionActor>().GetType().ToString());
         EventServer.AddTime(0.0f);
