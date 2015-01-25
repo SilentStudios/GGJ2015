@@ -13,4 +13,20 @@ public class CryActionActor : ActionActor {
 	// Update is called once per frame
 	void Update () {
 	}
+
+	void OnEnable()
+	{
+		EventServer.StartDirectorTimeEvent += FalseBool;
+		}
+
+	void FalseBool()
+	{
+
+		}
+
+	void OnDisable() {
+		Debug.Log ("ESTOY DESACTIVaNDO");
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isIdleLlanto", false);
+		EventServer.StartDirectorTimeEvent -= FalseBool;
+	}
 }

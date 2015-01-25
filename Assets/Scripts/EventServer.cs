@@ -58,4 +58,11 @@ public class EventServer
         if (ChangeAmbientEvent != null)
             ChangeAmbientEvent(text);
     }
+
+	public static void DirectorTime()
+	{
+		if (StartDirectorTimeEvent != null) {
+			StartDirectorTimeEvent();
+				}
+	}
 }
