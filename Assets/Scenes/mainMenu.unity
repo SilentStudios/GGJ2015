@@ -305,6 +305,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b374355a99e2d344b7ea2741a2b92db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 1016771221}
+  images:
+  - {fileID: 21300000, guid: 4d7232fef19a23b408800c1a20ab2510, type: 3}
+  - {fileID: 21300000, guid: 95584a814d9142e4a8e09223fb2fcb52, type: 3}
+  - {fileID: 21300000, guid: 963c3cd284cabdb4ab2f318180555f14, type: 3}
+  exit: {fileID: 234176232}
+  start: {fileID: 1341016778}
 --- !u!224 &427535678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -502,10 +509,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 32b1a6bea1cb5854a85e61b6281a3407,
+    m_HighlightedSprite: {fileID: 21300000, guid: 3a27fa2413cc82b4d9139eb5227f85c2,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 32b1a6bea1cb5854a85e61b6281a3407, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 32b1a6bea1cb5854a85e61b6281a3407, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 3a27fa2413cc82b4d9139eb5227f85c2, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 3a27fa2413cc82b4d9139eb5227f85c2, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -517,7 +524,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 427535677}
-        m_MethodName: StartGame
+        m_MethodName: NextImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -543,7 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 7418be0c0c1be9345a4cde51d6f3e796, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3075d08693f72a14ea7957604857facd, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
