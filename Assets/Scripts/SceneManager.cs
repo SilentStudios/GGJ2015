@@ -7,4 +7,9 @@ public class SceneManager : MonoBehaviour {
     {
         Application.LoadLevel("mainScene");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
